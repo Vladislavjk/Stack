@@ -36,6 +36,7 @@ Stack<T>::~Stack() {
 
 template<typename T>
 void Stack<T>::pop() {   // pop_front
+	if (empty()) throw out_of_range("Stack is empty");
 	Node<T>* temp = head;
 	head = head->pNext;
 	delete temp;
@@ -68,5 +69,6 @@ bool Stack<T>::empty() {
 
 template<typename T>
 T Stack<T>::top() {
+	if (empty()) throw out_of_range("Stack is empty");
 	return head->data;
 }
